@@ -1,5 +1,2 @@
-*metadata*
-Android Code/Android Car Control/bin/
-Android Code/Android Car Control/gen/
-Android Code/appcompat_v7/bin/
-Android Code/appcompat_v7/
+ArduinoCode/ArduinoCar/Debug/*
+AndroidCode/bin/*
