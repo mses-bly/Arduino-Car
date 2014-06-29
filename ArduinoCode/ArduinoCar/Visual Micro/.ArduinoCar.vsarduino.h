@@ -28,6 +28,8 @@ extern "C" void __cxa_pure_virtual() {;}
 #include "D:\Moises\Proyectos\Arduino-Car\ArduinoCode\ArduinoCar\BluetoothModule.h"
 #include "D:\Moises\Proyectos\Arduino-Car\ArduinoCode\ArduinoCar\CarControl.cpp"
 #include "D:\Moises\Proyectos\Arduino-Car\ArduinoCode\ArduinoCar\CarControl.h"
+#include "D:\Moises\Proyectos\Arduino-Car\ArduinoCode\ArduinoCar\Command.cpp"
+#include "D:\Moises\Proyectos\Arduino-Car\ArduinoCode\ArduinoCar\Command.h"
 #include "D:\Moises\Proyectos\Arduino-Car\ArduinoCode\ArduinoCar\Includes.h"
 #include "D:\Moises\Proyectos\Arduino-Car\ArduinoCode\ArduinoCar\PIDControl.cpp"
 #include "D:\Moises\Proyectos\Arduino-Car\ArduinoCode\ArduinoCar\PIDControl.h"

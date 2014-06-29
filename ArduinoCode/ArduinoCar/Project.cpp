@@ -7,30 +7,45 @@
 */
 #include "Project.h"
 
-int led = 9;
-double Kp = 0.4;
-double Kd = 0.001;
-double Ki = 0.0001;
-double dt = 0.01;
-PIDControl pidControl(Kp,Kd,Ki,0,255,dt);
+
+
+CarControl carControl(3,4,7);
+
+Command command;
 
 void Project::setup()
 {	
-	bluetoothModule.initialize();
-	pinMode(led, OUTPUT);
-	pinMode(6, OUTPUT);
+	//bluetoothModule.initialize();
 }
 
 void Project::loop()
 {
-
-	analogWrite(6,255);
-	int value = bluetoothModule.listen();
-	Serial.print("Received value: ");
-	Serial.print(value);
-	Serial.println();
-	pidControl.setReferenceValue(value);
-	pidControl.driveToValue(led);
+	
+	
+	Serial.println("Going forward");
+	carControl.setSpeed(0);
+	carControl.forward();
+	carControl.setSpeed(100);
+	delay(20000);
+	Serial.println("Increasing Speed");
+	carControl.setSpeed(255);
+	delay(20000);
+	Serial.println("Stopping");
+	carControl.setSpeed(0);
+	delay(20000);
+	Serial.println("Change Direction");
+	carControl.reverse();
+	carControl.setSpeed(255);
+	delay(20000);
+	
+	
+	
+	//int value = bluetoothModule.listen();
+	//Serial.print("Received value: ");
+	//Serial.print(value);
+	//Serial.println();
+	//pidControl.setReferenceValue(value);
+	//pidControl.driveToValue(led);
 	
 }
 

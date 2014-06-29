@@ -235,6 +235,12 @@
     <Compile Include="CarControl.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Command.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Command.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Includes.h">
       <SubType>compile</SubType>
     </Compile>

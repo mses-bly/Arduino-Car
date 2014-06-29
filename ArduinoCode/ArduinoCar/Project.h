@@ -1,4 +1,5 @@
 /*
+
  * MyClass.h
  *
  * Created: 6/5/2014 10:45:44 PM
@@ -10,20 +11,20 @@
 
 #include "Includes.h"
 #include "BluetoothModule.h"
-#include "PIDControl.h"
+#include "CarControl.h"
 
 class Project
 {
  private:
+	BluetoothModule bluetoothModule;
 	
 
  public:
- 
-	BluetoothModule bluetoothModule;
-	
 	void setup();
 	void loop();
 };
 
+extern CarControl carControl;
+extern Command command;
 #endif
 

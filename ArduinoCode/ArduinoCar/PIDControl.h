@@ -9,30 +9,24 @@ class PIDControl
 {
 	
 	private:
+	
 	double error;
 	double old_error;
 	double integral;
-	double Kp;
-	double Kd;
-	double Ki;
 	double currentValue;
 	double referenceValue;
-	double dt;
-	
-	protected:
+		
+	static const double Kp = 0.4;
+	static const double Kd = 0.001;
+	static const double Ki = 0.0001;
+	static const double dt = 0.01;
 
 
 	public:
 	
-	PIDControl(double _Kp, double _Kd, double _Ki, int _currentValue, int _referenceValue, double _dt);
-		
-	void setCoefficients(double _Kp, double _Kd, double _Ki);
-	
 	void computeStep();
 	
-	void driveToValue(int pwmPin);
-	
-	void setReferenceValue(double _referenceValue);
+	void driveToValue(int pwmPin, double objectiveSpeed);
 	
 	double getCurrentValue();
 };
