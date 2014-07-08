@@ -27,6 +27,7 @@ void CarControl::reverse(){
 	digitalWrite(forwardPin,LOW);
 	digitalWrite(reversePin,HIGH);
 	direction = REVERSE;
+	
 }
 
 
@@ -41,16 +42,11 @@ void CarControl::setSpeed(int speed){
 
 void CarControl::executeCommand(Command command){
 	int newDirecion = command.getDirection();
-	if(direction != newDirecion){
-		stop();
-		//avoid breaking the gears
-		delay(1000);
-		if(newDirecion == FORWARD){
-			forward();
-		}
-		else{
-			reverse();
-		}
+	if(newDirecion == FORWARD){
+		forward();
+	}
+	else{
+		reverse();
 	}
 	setSpeed(command.getSpeed());
 }

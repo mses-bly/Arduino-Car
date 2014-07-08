@@ -23,8 +23,10 @@ public class BluetoothManager {
 	private BluetoothSocket socket;
 	private InputStream inputStream;
 	private OutputStream outputStream;
-
+	private boolean isConnected;
+	
 	public CodesEnum intialize() throws Exception {
+		isConnected = false;
 		adapter = BluetoothAdapter.getDefaultAdapter();
 		if (adapter == null) {
 			throw new Exception("Bluetooth is not supported by this device");
@@ -71,7 +73,8 @@ public class BluetoothManager {
 			this.socket = auxSocket;
 			this.inputStream = socket.getInputStream();
 			this.outputStream = socket.getOutputStream();
-			Log.d("Bluetooth debug","Device connected");
+			isConnected = true;
+			Log.d("INFO","Device connected");
 			
 		} catch (IOException e) {
 			throw new Exception("Problem with the creation of the socket");
@@ -83,6 +86,7 @@ public class BluetoothManager {
 		try {
 			if (socket != null) {
 				socket.close();
+				isConnected = false;
 			}
 		} catch (IOException e) {
 		}
@@ -91,16 +95,29 @@ public class BluetoothManager {
 	public void write(int data) throws Exception {
 		byte b3 = (byte) (data & 0xFF);
 		this.outputStream.write(b3);
-		Log.d("Bluetooth debug", "Sending data: "+Integer.toBinaryString(data));
+		Log.d("INFO", "Sending data: "+Integer.toBinaryString(data));
 	}
+	
+	public void write(byte[] data) throws Exception {
+		this.outputStream.write(data);
+		Log.d("INFO", "Sending data array...)");
+	}
+	
+	
 	public int read() throws Exception {
 		try {
 			int response = inputStream.read();
-			Log.d("Bluetooth debug", "Receiving data: "+response);
+			Log.d("INFO", "Receiving data: "+response);
 			return response;
 		} catch (IOException e) {
 			throw new Exception("Problem reading from the socket");
 		}
 	}
+
+	public boolean isConnected() {
+		return isConnected;
+	}
+	
+	
 
 }

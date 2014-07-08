@@ -3,17 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="${packageName}.${activityClass}" >
-
     <LinearLayout
         android:id="@+id/speed_layout"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_alignParentRight="true"
-        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentLeft="true"
         android:layout_marginTop="10dp" 
-        
+        android:layout_marginLeft="10dp"
+        android:gravity="center_horizontal"
         >
-
         <TextView
             android:id="@+id/speed_indicator_text"
             style="@android:style/TextAppearance.Medium"
@@ -21,18 +20,40 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
             android:text="0" 
-            android:gravity="center_vertical"
-            android:layout_marginLeft="5dp"
             />
-
-        <SeekBar
+        <android.car.ui_components.VerticalSeekBar
             android:id="@+id/seek_bar_car_speed"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
             android:max="255"
             />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:orientation="horizontal" 
+        android:layout_marginRight="10dp"
+        >
+        <CheckBox
+            android:id="@+id/reverse_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reverse"
+            android:layout_marginTop="5dp"
+            android:checked="false" 
+            />
+        <ToggleButton
+            android:id="@+id/on_off_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="Off"
+            android:textOff="On"
+            android:checked="false" 
+            android:layout_marginLeft="5dp"
+            />
+    </LinearLayout>
+     
 
 </RelativeLayout>
